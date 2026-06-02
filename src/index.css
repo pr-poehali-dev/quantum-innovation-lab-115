@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Nunito:wght@400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,47 +6,43 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 98%;
+    --background: 220 30% 8%;
+    --foreground: 45 90% 92%;
 
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 98%;
+    --card: 220 25% 12%;
+    --card-foreground: 45 90% 92%;
 
-    --popover: 0 0% 3%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 45 90% 92%;
 
-    --primary: 147 87% 52%;
-    --primary-foreground: 0 0% 3%;
+    --primary: 43 90% 58%;
+    --primary-foreground: 220 30% 8%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 210 40% 18%;
+    --secondary-foreground: 45 90% 92%;
 
-    --muted: 0 0% 9%;
-    --muted-foreground: 0 0% 62%;
+    --muted: 220 20% 16%;
+    --muted-foreground: 220 15% 60%;
 
-    --accent: 147 87% 52%;
-    --accent-foreground: 0 0% 3%;
+    --accent: 43 90% 58%;
+    --accent-foreground: 220 30% 8%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 12%;
-    --ring: 147 87% 52%;
+    --border: 220 20% 22%;
+    --input: 220 20% 16%;
+    --ring: 43 90% 58%;
 
-    --radius: 0.625rem;
+    --radius: 0.75rem;
 
-    --font-mono: "IBM Plex Mono", monospace;
-    --font-montserrat: "Montserrat", sans-serif;
+    --font-cinzel: "Cinzel", serif;
+    --font-nunito: "Nunito", sans-serif;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --gold: 43 90% 58%;
+    --gold-light: 45 95% 72%;
+    --blue-genshin: 210 80% 55%;
+    --blue-deep: 215 60% 20%;
   }
 }
 
@@ -57,7 +53,93 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-mono);
+    font-family: var(--font-nunito);
+    overflow-x: hidden;
+  }
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+
+.font-nunito {
+  font-family: var(--font-nunito);
+}
+
+.gold-text {
+  color: hsl(var(--gold));
+}
+
+.gold-gradient {
+  background: linear-gradient(
+    135deg,
+    hsl(43, 90%, 58%),
+    hsl(45, 95%, 72%),
+    hsl(35, 85%, 50%)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.genshin-border {
+  border: 1px solid hsl(var(--gold) / 0.3);
+}
+
+.genshin-card {
+  background: linear-gradient(
+    135deg,
+    hsl(220, 25%, 12%) 0%,
+    hsl(215, 30%, 16%) 100%
+  );
+  border: 1px solid hsl(var(--gold) / 0.25);
+}
+
+.element-card {
+  transition: all 0.3s ease;
+}
+
+.element-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px hsl(var(--gold) / 0.2);
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    hsl(220, 30%, 8% / 0.2) 0%,
+    hsl(220, 30%, 8% / 0.5) 60%,
+    hsl(220, 30%, 8%) 100%
+  );
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(var(--gold) / 0.5),
+    transparent
+  );
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px hsl(var(--gold) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--gold) / 0.6);
   }
 }
 
@@ -70,22 +152,104 @@
   }
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
 .animate-spin-slow {
   animation: spin-slow 20s linear infinite;
+}
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out forwards;
 }
 
 .rounded-4xl {
   border-radius: 2rem;
 }
 
-/* Hide Spline "Built with Spline" badge */
+.bg-star-5 {
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+}
+.bg-star-4 {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+}
+
+.char-card {
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.char-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px hsl(var(--gold) / 0.25);
+}
+
+.platform-icon {
+  transition: all 0.3s ease;
+}
+.platform-icon:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 12px hsl(var(--gold) / 0.6));
+}
+
+.gallery-item {
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+.gallery-item img {
+  transition: transform 0.4s ease;
+}
+
+/* Genshin decorative corner */
+.corner-decor::before,
+.corner-decor::after {
+  content: "✦";
+  position: absolute;
+  color: hsl(var(--gold) / 0.4);
+  font-size: 1.2rem;
+}
+.corner-decor::before {
+  top: 1rem;
+  left: 1rem;
+}
+.corner-decor::after {
+  bottom: 1rem;
+  right: 1rem;
+}
+
+/* Hide Spline watermark */
 [data-spline-watermark],
 a[href*="spline.design"][target="_blank"],
 div[style*="spline"] > a,
 canvas + a[target="_blank"],
 .spline-watermark,
 div[class*="spline"] > a[href*="spline"],
-a[href="https://spline.design"] {
+a[href="https://spline.design"]
+{
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;

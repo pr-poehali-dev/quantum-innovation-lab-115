@@ -1,89 +1,62 @@
-const CDN_BASE = "https://cdn.poehali.dev/templates/meet-jack"
-
 export default function Footer() {
   return (
-    <footer className="w-full px-6 relative py-[0] mt-28 h-auto mb-0 bg-card">
-      <div className="absolute top-8 right-6 text-accent text-2xl">+</div>
-      <div className="absolute top-1/2 right-12 text-accent text-lg transform -translate-y-1/2">*</div>
-      <div className="absolute bottom-12 right-20 text-accent text-xl">+</div>
-      <div className="absolute top-16 right-32 text-accent text-sm">*</div>
-      <div className="absolute bottom-8 right-8 text-accent text-lg">*</div>
-
-      <div className="max-w-[1200px] mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <div className="flex-1 max-w-lg mt-8">
-            <h2
-              className="text-foreground text-4xl md:text-5xl mb-8 leading-[3.5rem] md:leading-[4rem] font-semibold text-center md:text-left mt-0"
-              style={{ fontFamily: "var(--font-montserrat)" }}
-            >
-              Все связано воедино.
-            </h2>
-
-            <div className="space-y-4 text-foreground">
-              <div className="flex items-start gap-3">
-                <span className="text-accent mt-1">*</span>
-                <p className="text-sm">Макс верит, что вселенная - и каждая база данных - построена на связях.</p>
+    <footer className="w-full bg-[hsl(220,30%,5%)] border-t border-[hsl(var(--gold)/0.2)] mt-0">
+      <div className="max-w-[1200px] mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[hsl(var(--gold))] to-[hsl(35,85%,45%)] flex items-center justify-center text-background font-bold text-sm">
+                ✦
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-accent mt-1">*</span>
-                <p className="text-sm">Его миссия - помогать людям проектировать с ясностью и воображением.</p>
-              </div>
+              <span className="font-cinzel font-bold text-lg gold-gradient">Genshin Impact</span>
             </div>
+            <p className="text-muted-foreground text-sm font-nunito leading-relaxed">
+              Бесплатная RPG с открытым миром от HoYoverse. Исследуйте огромный мир Тейват, встречайте новых персонажей и раскрывайте тайны вселенной.
+            </p>
           </div>
 
-          <div className="hidden md:flex flex-1 justify-end items-center relative">
-            <div className="relative">
-              <img
-                src={`${CDN_BASE}/jack-footer-ufo-new.png`}
-                alt="Макс в НЛО"
-                width={400}
-                height={300}
-                className="object-contain mb-0 mt-4"
-              />
-            </div>
+          <div>
+            <h4 className="font-cinzel font-semibold text-[hsl(var(--gold))] mb-4">Разделы</h4>
+            <ul className="space-y-2 text-sm font-nunito text-muted-foreground">
+              <li><a href="#about" className="hover:text-[hsl(var(--gold))] transition-colors">Об игре</a></li>
+              <li><a href="#story" className="hover:text-[hsl(var(--gold))] transition-colors">Сюжет</a></li>
+              <li><a href="#characters" className="hover:text-[hsl(var(--gold))] transition-colors">Персонажи</a></li>
+              <li><a href="#elements" className="hover:text-[hsl(var(--gold))] transition-colors">Элементы</a></li>
+              <li><a href="#start" className="hover:text-[hsl(var(--gold))] transition-colors">Как начать</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-cinzel font-semibold text-[hsl(var(--gold))] mb-4">Официальные ресурсы</h4>
+            <ul className="space-y-2 text-sm font-nunito">
+              <li>
+                <a href="https://genshin.hoyoverse.com/ru" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[hsl(var(--gold))] transition-colors">
+                  Официальный сайт HoYoverse
+                </a>
+              </li>
+              <li>
+                <a href="https://genshin.hoyoverse.com/ru/download" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[hsl(var(--gold))] transition-colors">
+                  Скачать игру
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/@GenshinImpact" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[hsl(var(--gold))] transition-colors">
+                  YouTube канал
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="md:hidden flex justify-center mt-12">
-          <div className="relative">
-            <img
-              src={`${CDN_BASE}/jack-footer-ufo-new.png`}
-              alt="Макс в НЛО"
-              width={500}
-              height={375}
-              className="object-contain"
-            />
-          </div>
-        </div>
+        <div className="section-divider mb-6" />
 
-        <div id="contact" className="w-full px-6 py-16 flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 md:gap-0 border-t border-border mt-16">
-          <div className="flex flex-col md:flex-row gap-2 text-center md:text-left">
-            <h2 className="text-foreground font-mono text-xl font-bold">Познакомься с Максом!</h2>
-            <p className="text-foreground font-mono font-normal text-base">Твой дружелюбный гид в мире баз данных</p>
-          </div>
-
-          <a href="mailto:hello@example.com">
-            <button className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold text-lg whitespace-nowrap hover:scale-105 hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-all duration-300 font-mono flex items-center gap-2">
-              Связаться с Максом
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M7 7h10v10M7 17L17 7" />
-              </svg>
-            </button>
-          </a>
-        </div>
-
-        <div className="w-full px-6 py-4 border-t border-border flex md:flex-row items-center justify-between gap-2 flex-row">
-          <p className="text-muted-foreground text-sm font-mono">2025 Макс</p>
-          <p className="text-muted-foreground text-sm font-mono">poehali.dev</p>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-muted-foreground text-sm font-nunito">
+            © 2024 HoYoverse. Genshin Impact и все связанные материалы являются собственностью HoYoverse.
+          </p>
+          <p className="text-muted-foreground text-sm font-nunito">
+            Информационный сайт для новичков
+          </p>
         </div>
       </div>
     </footer>
